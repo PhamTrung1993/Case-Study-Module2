@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadWriteFileBook implements IReadWriteBook {
-    private static final String fileName="book.txt";
+    private static final String fileName="D:\\case-study-module2\\bookstore-manager\\file\\book.txt";
     private static ReadWriteFileBook instance = null;
 
     public ReadWriteFileBook() {
@@ -46,11 +46,11 @@ public class ReadWriteFileBook implements IReadWriteBook {
     }
 
     @Override
-    public void writeData(List<Book> books) {
+    public void writeData(List<Book> bookList) {
         try {
             FileOutputStream fos = new FileOutputStream(fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(books);
+            oos.writeObject(bookList);
             oos.close();
             fos.close();
         } catch (FileNotFoundException exception) {

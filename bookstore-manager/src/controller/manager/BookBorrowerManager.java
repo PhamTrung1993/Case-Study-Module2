@@ -1,8 +1,11 @@
 package controller.manager;
 
-import storage.book.IReadWriteBook;
+
 import storage.book.ReadWriteFileBook;
+import storage.bookborrower.IReadWriteBorrower;
+import storage.bookborrower.ReadWriteFileBorrower;
 
 public class BookBorrowerManager {
-    private static IReadWriteBook readfile = ReadWriteFileBook.getInstance();
+    private static IReadWriteBorrower readfile = ReadWriteFileBorrower.getInstance();
+
 }
