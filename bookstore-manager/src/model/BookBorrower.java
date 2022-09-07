@@ -1,6 +1,8 @@
 package model;
 
-public class BookBorrower {
+import java.io.Serializable;
+
+public class BookBorrower implements Serializable {
     private String borrowerID;
     private String borrowerName;
     private String address;

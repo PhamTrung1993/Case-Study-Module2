@@ -1,86 +1,42 @@
 package controller.controller;
 
-import controller.node.NodeBook;
 import model.Book;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BookController {
-    NodeBook head,tail;
-
-    public BookController() {
-        this.head = null;
-        this.tail = null;
+    private String name;
+    public static List<Book> bookList = new ArrayList<>();
+    public void addNewBook(Book book) {
+        bookList.add(book);
+    }
+    public void editBook(int index,Book book){
+        bookList.set(index,book);
     }
 
-    public NodeBook getHead() {
-        return head;
+    public BookController(String name, List<Book> staffList) {
+        this.name = name;
+        this.bookList = staffList;
     }
 
-    public NodeBook getTail() {
-        return tail;
+    public BookController(String name) {
+        this.name = name;
     }
 
-    public void insertHead(Book book) {
-        NodeBook newNode = new NodeBook(book);
-        if (head == null) {
-            head = tail = newNode;
-        }else {
-            newNode.setNext(head);
-            head = newNode;
-        }
+    public String getName() {
+        return name;
     }
-    public void insertTail(Book book) {
-        NodeBook newNode = new NodeBook(book);
-        if (head == null) {
-            head = tail = newNode;
-        }else {
-            tail.setNext(newNode);
-            tail = newNode;
-        }
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void removeNode(NodeBook nodeBook) {
-        NodeBook intermediary = head;
-        NodeBook input = intermediary;
-        while (intermediary != null) {
-            if (intermediary == nodeBook) {
-                break;
-            } else {
-                input = intermediary;
-                intermediary = intermediary.getNext();
-            }
-        }
-        // Nếu node ở đầu danh sách.
-        if (intermediary == head) {
-            head = head.getNext();
-        }
-        //Nếu node ở cuối danh sách.
-        else {
-            if (intermediary.getNext() == null) {
-                input = null;
-            } else {
-                input.setNext(input.getNext());
-            }
-        }
+
+    public static List<Book> getStaffList() {
+        return bookList;
     }
-    public void sortByName() {
-        Book book;
-        String name1;
-        String name2;
-        if (head == null) {return;}
-        NodeBook intermediary = head;
-        NodeBook point;
-        while (intermediary.getNext() != null) {
-            point = intermediary.getNext();
-            name1 = intermediary.getInfo().getBookName().split(" ")[intermediary.getInfo().getBookName().split(" ").length-1];
-            while (point != null) {
-                name2 = point.getInfo().getBookName().split(" ")[intermediary.getInfo().getBookName().split(" ").length-1];
-                if (name1.compareToIgnoreCase(name2) > 0) {
-                    name1 = name2;
-                    book = intermediary.getInfo();
-                    intermediary.setInfo(point.getInfo());
-                    point.setInfo(book);
-                }
-                point = point.getNext();
-            }
-        }
+
+    public void setStaffList(List<Book> staffList) {
+        this.bookList = staffList;
     }
 }

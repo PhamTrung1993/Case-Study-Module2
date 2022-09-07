@@ -1,6 +1,8 @@
 package model;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     private String bookID;
     private String bookTitle;
     private String bookName;
@@ -9,10 +11,12 @@ public class Book {
     private String status;
     private long rentCost;
 
+    private long bookPrice;
+
     public Book() {
     }
 
-    public Book(String bookID, String bookTitle, String bookName, String category, String writingMaster, String status, long rentCost) {
+    public Book(String bookID, String bookTitle, String bookName, String category, String writingMaster, String status, long rentCost,long bookPrice) {
         this.bookID = bookID;
         this.bookTitle = bookTitle;
         this.bookName = bookName;
@@ -20,15 +24,17 @@ public class Book {
         this.writingMaster = writingMaster;
         this.status = status;
         this.rentCost = rentCost;
+        this.bookPrice = bookPrice;
     }
 
-    public Book(String bookID, String bookName, String category, String writingMaster, String status, long rentCost) {
+    public Book(String bookID, String bookName, String category, String writingMaster, String status, long rentCost, long bookPrice) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.category = category;
         this.writingMaster = writingMaster;
         this.status = status;
         this.rentCost = rentCost;
+        this.bookPrice = bookPrice;
     }
 
     public long getRentCost() {
@@ -87,6 +93,14 @@ public class Book {
         this.status = status;
     }
 
+    public long getBookPrice() {
+        return bookPrice;
+    }
+
+    public void setBookPrice(long bookPrice) {
+        this.bookPrice = bookPrice;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -96,6 +110,8 @@ public class Book {
                 ", category='" + category + '\'' +
                 ", writingMaster='" + writingMaster + '\'' +
                 ", status='" + status + '\'' +
+                ", rentCost=" + rentCost +
+                ", bookPrice=" + bookPrice +
                 '}';
     }
 }
