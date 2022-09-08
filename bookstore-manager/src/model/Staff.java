@@ -8,16 +8,20 @@ public class Staff implements Serializable {
     private String staffaddresss;
     private String phoneNumber;
     private String staffEmail;
+    private long hourly;
+    private int workingHours;
 
     public Staff() {
     }
 
-    public Staff(String ID, String staffName, String staffaddresss, String phoneNumber, String staffEmail) {
+    public Staff(String ID, String staffName, String staffaddresss, String phoneNumber, String staffEmail,long hourly,int workingHours) {
         this.ID = ID;
         this.staffName = staffName;
         this.staffaddresss = staffaddresss;
         this.phoneNumber = phoneNumber;
         this.staffEmail = staffEmail;
+        this.hourly = hourly;
+        this.workingHours = workingHours;
     }
 
     public String getID() {
@@ -60,6 +64,22 @@ public class Staff implements Serializable {
         this.staffEmail = staffEmail;
     }
 
+    public long getHourly() {
+        return hourly;
+    }
+
+    public void setHourly(long hourly) {
+        this.hourly = hourly;
+    }
+
+    public int getWorkingHours() {
+        return workingHours;
+    }
+
+    public void setWorkingHours(int workingHours) {
+        this.workingHours = workingHours;
+    }
+
     @Override
     public String toString() {
         return "Staff{" +
@@ -68,6 +88,8 @@ public class Staff implements Serializable {
                 ", staffaddresss='" + staffaddresss + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", staffEmail='" + staffEmail + '\'' +
+                ", hourly=" + hourly +
+                ", workingHours=" + workingHours +
                 '}';
     }
 }

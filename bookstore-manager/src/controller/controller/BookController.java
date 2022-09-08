@@ -15,9 +15,9 @@ public class BookController {
         bookList.set(index,book);
     }
 
-    public BookController(String name, List<Book> staffList) {
+    public BookController(String name, List<Book> bookList) {
         this.name = name;
-        this.bookList = staffList;
+        this.bookList = bookList;
     }
 
     public BookController(String name) {
@@ -32,11 +32,11 @@ public class BookController {
         this.name = name;
     }
 
-    public static List<Book> getStaffList() {
+    public static List<Book> getBookList() {
         return bookList;
     }
 
-    public void setStaffList(List<Book> staffList) {
-        this.bookList = staffList;
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 }

@@ -2,18 +2,16 @@ package controller.function;
 
 import controller.display.DisplayBook;
 import controller.manager.BookManager;
+import controller.menu.BookMenu;
 import model.Book;
-import storage.book.IReadWriteBook;
-import storage.book.ReadWriteFileBook;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class BookFunction {
 
-    public void searchBookbyName(List<Book> bookList) throws IOException{
+    public void searchBookbyName(List<Book> bookList){
         Iterator<Book> iterator;
         String nameValue = InputValue.enterNameForm();
         iterator = bookList.iterator();
@@ -26,7 +24,7 @@ public class BookFunction {
             }
         }
     }
-    public void searchBookbyID(List<Book> bookList) throws IOException {
+    public void searchBookbyID(List<Book> bookList) {
         Iterator<Book> iterator;
         String idValue = InputValue.enterIDForm();
         iterator = bookList.iterator();
@@ -39,7 +37,7 @@ public class BookFunction {
             }
         }
     }
-    public void deleteBookByName(List<Book> bookList) throws IOException {
+    public void deleteBookByName(List<Book> bookList) {
         String nameValue;
         Iterator<Book> iterator;
         nameValue = InputValue.enterNameForm();
@@ -53,6 +51,16 @@ public class BookFunction {
         }
     }
     public void editBookByName(List<Book> bookList) throws IOException{
-
+        Iterator<Book> iterator;
+        String nameValue = InputValue.enterNameForm();
+        iterator = bookList.iterator();
+        while (iterator.hasNext()) {
+            Book holder = iterator.next();
+            if (holder.getBookName() == nameValue) {
+                BookMenu bookMenu = new BookMenu();
+                bookList.set(bookList.indexOf(holder), bookMenu.createBookForm());
+                break;
+            }
+        }
     }
 }

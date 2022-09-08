@@ -7,13 +7,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class BookMenu {
     public Book createBookForm() throws NumberFormatException, IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(">>>>>>>>ADD NEW Book<<<<<<<<<");
+        System.out.println(">>>>>>>>ADD NEW BOOK<<<<<<<<<");
         System.out.print("1. Enter Book ID: ");
         String id = bufferedReader.readLine();
         System.out.print("1. Enter Book Title: ");
@@ -37,7 +36,7 @@ public class BookMenu {
     public int menu() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println();
-        System.out.println("             QUẢN LÝ SÁCH                ");
+        System.out.println("             BOOK MENU                   ");
         System.out.println("-------------------***-------------------");
         System.out.println("|    1. Add Book.                       |");
         System.out.println("|    2. Edit Book by Name.              |");
@@ -48,20 +47,20 @@ public class BookMenu {
         System.out.println("|    7. Save Book to database.          |");
         System.out.println("|    8. Load Book from database.        |");
         System.out.println("|    9. Back Main menu.                 |");
-        System.out.println("|    0. Thoát chương trình.             |");
+        System.out.println("|    0. Exit program.                   |");
         System.out.println("-----------------------------------------");
-        System.out.print("  Mời chọn chức năng: ");
+        System.out.print("  Select function: ");
         int option = Integer.parseInt(bufferedReader.readLine());
         return option;
     }
     public void displayAllBooks(List<Book> bookList) {
-        System.out.println("################ DISPLAY ALL GUESTROOM ################");
+        System.out.println("############################ DISPLAY ALL GUESTROOM ##############################");
         Iterator<Book> iterator = bookList.iterator();
         while (iterator.hasNext()) {
             Book holder = iterator.next();
-            System.out.printf("%-10s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", holder.getBookID(),holder.getBookTitle(),holder.getBookName()
+            System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", holder.getBookID(),holder.getBookTitle(),holder.getBookName()
                     ,holder.getCategory(),holder.getWritingMaster(),holder.getStatus(), holder.getRentCost(), holder.getBookPrice());
         }
-        System.out.println("..................................................................");
+        System.out.println("......................................................................................");
     }
 }

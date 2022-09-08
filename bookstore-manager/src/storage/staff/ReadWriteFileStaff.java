@@ -37,6 +37,7 @@ public class ReadWriteFileStaff implements IReadWriteStaff{
         Object obj = null;
         try {
             obj = ois.readObject();
+            System.out.println("Load finish!!!");
         } catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
@@ -52,6 +53,7 @@ public class ReadWriteFileStaff implements IReadWriteStaff{
             oos.writeObject(staffList);
             oos.close();
             fos.close();
+            System.out.println("Save finish!!!");
         } catch (FileNotFoundException exception) {
             exception.printStackTrace();
         } catch (IOException exception) {

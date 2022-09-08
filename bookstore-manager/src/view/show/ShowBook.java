@@ -21,7 +21,7 @@ public class ShowBook {
     private static final int DISPLAY_ALL_BOOK = 4;
     private static final int REMOVE_BOOK_BY_NAME = 3;
     private static final int EDIT_BOOK_BY_NAME = 2;
-    private static final int ADD_GUESTROOM_CODE = 1;
+    private static final int ADD_BOOK = 1;
     private static final String INVALID_OPTION_STRING = "Invalid Option";
     private static final int EXIT_PROGRAM = 0;
     private static final int INIT_VALUE = -1;
@@ -32,9 +32,8 @@ public class ShowBook {
         bookList.add(book1);
         return bookList;
     }
-    public void menuOfBook() throws IOException{
+    public static void menuOfBook() throws IOException{
         BookFunction bookFunction = new BookFunction();
-        DisplayBook displayBook = new DisplayBook();
         BookMenu bookMenu = new BookMenu();
         ReadWriteFileBook readWriteFileBook = new ReadWriteFileBook();
         List<Book> bookList = initBook();
@@ -47,7 +46,7 @@ public class ShowBook {
                 case EXIT_PROGRAM :
                     System.exit(EXIT_PROGRAM);
                     break;
-                case ADD_GUESTROOM_CODE :
+                case ADD_BOOK :
                     bookList.add(bookMenu.createBookForm());
                     break;
                 case EDIT_BOOK_BY_NAME :

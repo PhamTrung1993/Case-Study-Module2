@@ -37,6 +37,7 @@ public class ReadWriteFileBook implements IReadWriteBook {
         Object obj = null;
         try {
             obj = ois.readObject();
+            System.out.println("Load finish!!!");
         } catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
@@ -53,6 +54,7 @@ public class ReadWriteFileBook implements IReadWriteBook {
             oos.writeObject(bookList);
             oos.close();
             fos.close();
+            System.out.println("Save finish!");
         } catch (FileNotFoundException exception) {
             exception.printStackTrace();
         } catch (IOException exception) {
